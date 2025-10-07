@@ -8,7 +8,7 @@
 }
 
 .page-gradient {
-  min-height: 100%;
+  min-height: 100vh;
   place-items: center;
   background: linear-gradient(135deg, rgba(176, 104, 233, 1), rgba(100, 99, 231, 1));
   display: flex;
@@ -56,6 +56,7 @@
   background: transparent;
   border: 0;
   display: flex;
+  justify-content: space-between;
   color: rgba(75, 76, 95, 1);
   border-bottom: 1px solid rgba(232, 232, 234, 1); 
 }
@@ -78,7 +79,6 @@
   color: rgba(30, 31, 54, 1); 
   margin-right: 28px;
   text-align: left;
-  border: 0;
 }
 
 .faq-answer {
@@ -95,6 +95,11 @@
 }
 
 @media (min-width: 1439px) {
+  *{
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+  }
   .page-gradient {
     min-height: 100vh;
   }
@@ -109,23 +114,59 @@
 
   .underPhoto {
     position: absolute;
-    width: 520px;
+    width: 964px;
     height: auto;
-    z-index: 2; 
+    right: 771px;
+    top: 211px;
+    z-index: 2;
   }
 
   .mainPhoto{
+    position: absolute;
     width: 472px;
     height: auto;
-    margin-left: 176px;
-    margin-top: 199px;
+    right: 771px;
+    top: 200px; 
     z-index: 3; 
   }
 
   .faq-content {
-    margin: 65px 83px 95px 475px;
+    margin: 0;
+    padding: 0;
+    margin-left: 475px;
+    margin-top: 65px;
+    margin-right: 95px;
   }
 
-  
+  .faq-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 43px;
+  }
+
+  .faq-question{
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .faq-question p{
+    font-size: 14px;
+    margin: 2px 96px 19px 1px;
+  }
+
+  .faq-question:hover p { 
+    font-weight: 700;
+    line-height: 16px;
+    color: rgba(30, 31, 54, 1); 
+    margin-right: 28px;
+    padding-bottom: 0;
+  }
+
+  .faq-answer{
+    margin-top: 0;
+    padding: 11px, 16px, 30px, 1px;
+  }
+
 }
 
