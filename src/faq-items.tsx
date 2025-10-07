@@ -7,7 +7,7 @@ export type FaqItem = {
   answer: string
 }
 
-const FAQ_ITEMS: FaqItem[] = [
+const faqs = [
   {
     question: 'How many team members can I invite?',
     answer:
@@ -36,35 +36,21 @@ const FAQ_ITEMS: FaqItem[] = [
 ]
 
 function FaqItems() {
-  const [openIndex, setOpenIndex] = useState<number | null>(1)
+  const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <ul className="faq-list" role="list">
-      {FAQ_ITEMS.map((item, index) => {
-        const isOpen = openIndex === index
-        return (
-          <li key={item.question} className={`faq-row ${isOpen ? 'open' : ''}`}>
-            <button
-              className="faq-question"
-              aria-expanded={isOpen}
-              aria-controls={`answer-${index}`}
-              onClick={() => setOpenIndex(isOpen ? null : index)}
-            >
-              <span>{item.question}</span>
-              <img src={isOpen ? arrowUp : arrowDown} alt="toggle" />
-            </button>
-            <div
-              id={`answer-${index}`}
-              role="region"
-              className="faq-answer"
-              aria-hidden={!isOpen}
-            >
-              {item.answer}
-            </div>
-          </li>
-        )
-      })}
-    </ul>
+    <div className="faq-list">
+      {faqs.map((item, i) => (
+        <div key={i} className={`faq-item ${open === i ? 'open' : ''}`}>
+          <button className="faq-question" onClick={() => setOpen(open === i ? null : i)}>
+            <p>{item.question}</p>
+            <img src={open === i ? arrowUp : arrowDown} alt="" className="faq-icon"/>
+          </button>
+
+          {open === i && <p className="faq-answer">{item.answer}</p>}
+        </div>
+      ))}
+    </div>
   )
 }
 
