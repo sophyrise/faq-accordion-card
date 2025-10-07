@@ -53,6 +53,7 @@
 
 
 .faq-question {
+  width: 100%;
   background: transparent;
   border: 0;
   display: flex;
@@ -94,7 +95,7 @@
   padding-right: 30px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1300px) {
   *{
     box-sizing: border-box; 
     margin: 0;
